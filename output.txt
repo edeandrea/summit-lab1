@@ -1,0 +1,143 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.redhat:SampleWebApp >-----------------------
+[INFO] Building SampleWebApp Maven Webapp 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ SampleWebApp ---
+[INFO] Deleting /Users/edeandre/workspaces/Summit/summit-lab1/target
+[INFO] 
+[INFO] >>> fabric8-maven-plugin:3.5.42:deploy (default-cli) > install @ SampleWebApp >>>
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ SampleWebApp ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /Users/edeandre/workspaces/Summit/summit-lab1/src/main/resources
+[INFO] 
+[INFO] --- fabric8-maven-plugin:3.5.42:resource (fmp) @ SampleWebApp ---
+[INFO] F8: Running in OpenShift mode
+[INFO] F8: Using docker image name of namespace: samplewebapp
+[INFO] F8: Running generator webapp
+[INFO] F8: webapp: Using fabric8/tomcat-8 as base image for webapp
+[INFO] F8: fmp-controller: Adding a default Deployment
+[INFO] F8: fmp-service: Adding a default service 'samplewebapp' with ports [8080]
+[INFO] F8: f8-service-discovery: Using first mentioned service port '8080' 
+[INFO] F8: fmp-revision-history: Adding revision history limit to 2
+[INFO] F8: validating /Users/edeandre/workspaces/Summit/summit-lab1/target/classes/META-INF/fabric8/openshift/samplewebapp-svc.yml resource
+[INFO] F8: validating /Users/edeandre/workspaces/Summit/summit-lab1/target/classes/META-INF/fabric8/openshift/samplewebapp-route.yml resource
+[INFO] F8: validating /Users/edeandre/workspaces/Summit/summit-lab1/target/classes/META-INF/fabric8/openshift/samplewebapp-deploymentconfig.yml resource
+[INFO] F8: validating /Users/edeandre/workspaces/Summit/summit-lab1/target/classes/META-INF/fabric8/kubernetes/samplewebapp-svc.yml resource
+[INFO] F8: validating /Users/edeandre/workspaces/Summit/summit-lab1/target/classes/META-INF/fabric8/kubernetes/samplewebapp-deployment.yml resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ SampleWebApp ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 2 source files to /Users/edeandre/workspaces/Summit/summit-lab1/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ SampleWebApp ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /Users/edeandre/workspaces/Summit/summit-lab1/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ SampleWebApp ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ SampleWebApp ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-war-plugin:2.5:war (default-war) @ SampleWebApp ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [SampleWebApp] in [/Users/edeandre/workspaces/Summit/summit-lab1/target/SampleWebApp]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/Users/edeandre/workspaces/Summit/summit-lab1/src/main/webapp]
+[INFO] Webapp assembled in [85 msecs]
+[INFO] Building war: /Users/edeandre/workspaces/Summit/summit-lab1/target/ROOT.war
+[INFO] 
+[INFO] --- fabric8-maven-plugin:3.5.42:build (fmp) @ SampleWebApp ---
+[INFO] F8: Using OpenShift build with strategy Docker
+[INFO] F8: Running generator webapp
+[INFO] F8: webapp: Using fabric8/tomcat-8 as base image for webapp
+[INFO] Copying files to /Users/edeandre/workspaces/Summit/summit-lab1/target/docker/samplewebapp/latest/build/maven
+[INFO] Building tar: /Users/edeandre/workspaces/Summit/summit-lab1/target/docker/samplewebapp/latest/tmp/docker-build.tar
+[INFO] F8: [samplewebapp:latest] "webapp": Created docker source tar /Users/edeandre/workspaces/Summit/summit-lab1/target/docker/samplewebapp/latest/tmp/docker-build.tar
+[INFO] F8: Using BuildServiceConfig samplewebapp-s2i for Docker strategy
+[INFO] F8: Adding to ImageStream samplewebapp
+[INFO] F8: Starting Build samplewebapp-s2i
+Trying internal type for name:Pod
+[INFO] F8: Waiting for build samplewebapp-s2i-2 to complete...
+[INFO] F8: Step 1/6 : FROM fabric8/tomcat-8
+[INFO] F8:  ---> 0a96550843c0
+[INFO] F8: Step 2/6 : ENV DEPLOY_DIR /deployments
+[INFO] F8:  ---> Using cache
+[INFO] F8:  ---> b256be48b5d9
+[INFO] F8: Step 3/6 : EXPOSE 8080
+[INFO] F8:  ---> Using cache
+[INFO] F8:  ---> 3a7ac2bffae9
+[INFO] F8: Step 4/6 : COPY maven /deployments/
+[INFO] F8:  ---> b426f1d96b3a
+[INFO] F8: Removing intermediate container fc8d738ed808
+[INFO] F8: Step 5/6 : ENV "OPENSHIFT_BUILD_NAME" "samplewebapp-s2i-2" "OPENSHIFT_BUILD_NAMESPACE" "samplewebapp"
+Trying internal type for name:Build
+[INFO] F8:  ---> Running in 046da411affd
+[INFO] F8:  ---> 93ba449e00cf
+[INFO] F8: Removing intermediate container 046da411affd
+[INFO] F8: Step 6/6 : LABEL "io.openshift.build.name" "samplewebapp-s2i-2" "io.openshift.build.namespace" "samplewebapp"
+[INFO] F8:  ---> Running in 18f173eb820a
+[INFO] F8:  ---> caaf056ddc6a
+[INFO] F8: Removing intermediate container 18f173eb820a
+[INFO] F8: Successfully built caaf056ddc6a
+[INFO] F8: 
+[INFO] F8: Pushing image docker-registry.default.svc:5000/samplewebapp/samplewebapp:latest ...
+[INFO] F8: Pushed 0/17 layers, 0% complete
+[INFO] F8: Pushed 1/17 layers, 17% complete
+[INFO] F8: Pushed 2/17 layers, 33% complete
+[INFO] F8: Pushed 3/17 layers, 33% complete
+[INFO] F8: Pushed 4/17 layers, 41% complete
+[INFO] F8: Pushed 5/17 layers, 47% complete
+[INFO] F8: Pushed 6/17 layers, 53% complete
+[INFO] F8: Pushed 7/17 layers, 59% complete
+[INFO] F8: Pushed 8/17 layers, 70% complete
+[INFO] F8: Pushed 9/17 layers, 76% complete
+[INFO] F8: Pushed 10/17 layers, 76% complete
+[INFO] F8: Pushed 11/17 layers, 82% complete
+[INFO] F8: Pushed 12/17 layers, 88% complete
+[INFO] F8: Pushed 13/17 layers, 94% complete
+[INFO] F8: Pushed 14/17 layers, 100% complete
+[INFO] F8: Pushed 15/17 layers, 100% complete
+[INFO] F8: Pushed 16/17 layers, 100% complete
+[INFO] F8: Pushed 17/17 layers, 100% complete
+[INFO] F8: Push successful
+[INFO] F8: Build samplewebapp-s2i-2 in status Complete
+[WARNING] Executor didn't terminate in time after shutdown in close(), killing it in: io.fabric8.kubernetes.client.dsl.internal.WatchHTTPManager@2c24e8b1
+[INFO] F8: Found tag on ImageStream samplewebapp tag: sha256:f2a8535bbe49b5b48f4362b118d635773604083a1ac4e2754d201093565f34b9
+[INFO] F8: ImageStream samplewebapp written to /Users/edeandre/workspaces/Summit/summit-lab1/target/SampleWebApp-is.yml
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ SampleWebApp ---
+[INFO] Installing /Users/edeandre/workspaces/Summit/summit-lab1/target/ROOT.war to /Users/edeandre/.m2/repository/com/redhat/SampleWebApp/0.0.1-SNAPSHOT/SampleWebApp-0.0.1-SNAPSHOT.war
+[INFO] Installing /Users/edeandre/workspaces/Summit/summit-lab1/pom.xml to /Users/edeandre/.m2/repository/com/redhat/SampleWebApp/0.0.1-SNAPSHOT/SampleWebApp-0.0.1-SNAPSHOT.pom
+[INFO] Installing /Users/edeandre/workspaces/Summit/summit-lab1/target/classes/META-INF/fabric8/openshift.yml to /Users/edeandre/.m2/repository/com/redhat/SampleWebApp/0.0.1-SNAPSHOT/SampleWebApp-0.0.1-SNAPSHOT-openshift.yml
+[INFO] Installing /Users/edeandre/workspaces/Summit/summit-lab1/target/classes/META-INF/fabric8/openshift.json to /Users/edeandre/.m2/repository/com/redhat/SampleWebApp/0.0.1-SNAPSHOT/SampleWebApp-0.0.1-SNAPSHOT-openshift.json
+[INFO] Installing /Users/edeandre/workspaces/Summit/summit-lab1/target/classes/META-INF/fabric8/kubernetes.yml to /Users/edeandre/.m2/repository/com/redhat/SampleWebApp/0.0.1-SNAPSHOT/SampleWebApp-0.0.1-SNAPSHOT-kubernetes.yml
+[INFO] Installing /Users/edeandre/workspaces/Summit/summit-lab1/target/classes/META-INF/fabric8/kubernetes.json to /Users/edeandre/.m2/repository/com/redhat/SampleWebApp/0.0.1-SNAPSHOT/SampleWebApp-0.0.1-SNAPSHOT-kubernetes.json
+[INFO] Installing /Users/edeandre/workspaces/Summit/summit-lab1/target/SampleWebApp-is.yml to /Users/edeandre/.m2/repository/com/redhat/SampleWebApp/0.0.1-SNAPSHOT/SampleWebApp-0.0.1-SNAPSHOT-is.yml
+[INFO] 
+[INFO] <<< fabric8-maven-plugin:3.5.42:deploy (default-cli) < install @ SampleWebApp <<<
+[INFO] 
+[INFO] 
+[INFO] --- fabric8-maven-plugin:3.5.42:deploy (default-cli) @ SampleWebApp ---
+[INFO] F8: Using OpenShift at https://master.boston-da8a.openshiftworkshop.com:443/ in namespace samplewebapp with manifest /Users/edeandre/workspaces/Summit/summit-lab1/target/classes/META-INF/fabric8/openshift.yml 
+[INFO] OpenShift platform detected
+[INFO] Using project: samplewebapp
+Trying internal type for name:Service
+Trying internal type for name:DeploymentConfig
+Trying internal type for name:Route
+[INFO] Updating a Service from openshift.yml
+[INFO] Updated Service: target/fabric8/applyJson/samplewebapp/service-samplewebapp.json
+[INFO] Using project: samplewebapp
+[INFO] Updating DeploymentConfig from openshift.yml
+[INFO] Updated DeploymentConfig: target/fabric8/applyJson/samplewebapp/deploymentconfig-samplewebapp.json
+[INFO] F8: HINT: Use the command `oc get pods -w` to watch your pods start up
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  28.629 s
+[INFO] Finished at: 2019-04-16T09:37:56-04:00
+[INFO] ------------------------------------------------------------------------
