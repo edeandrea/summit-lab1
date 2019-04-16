@@ -77,7 +77,7 @@
 						<executions>
 							<execution>
 								<id>fmp</id>
-								<!-- <phase>package</phase> -->
+								<phase>package</phase>
 								<goals>
 									<goal>resource</goal>
 									<goal>build</goal>
@@ -89,4 +89,29 @@
 			</build>
 		</profile>
   </profiles>
+
+	<repositories>
+		<repository>
+			<id>redhat</id>
+			<url>https://maven.repository.redhat.com/ga/</url>
+		</repository>
+		<repository>
+			<id>jboss-public-repository-group</id>
+			<name>JBoss Public Repository Group</name>
+			<url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>redhat</id>
+			<url>https://maven.repository.redhat.com/ga/</url>
+		</pluginRepository>
+	</pluginRepositories>
 </project>
